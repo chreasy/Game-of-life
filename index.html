@@ -1,0 +1,113 @@
+<!doctype html>
+<html ng-app="GameOfLife">
+<head>
+    <title>Game of Lifes</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body ng-controller="PlayingFieldController">
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" style="color:grey;">Conways's Game of Lifes</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Spielfeldgröße <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a id ="10x10" ng-click="createGrid(10,10)">10 x 10</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id ="20x20" ng-click="createGrid(20,20)">20 x 20</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id ="30x30" ng-click="createGrid(30,30)">30 x 30</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id="40x40" ng-click="createGrid(40,40)">40 x 40</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id="50x50" ng-click="createGrid(50,50)">50 x 50</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id="60x60" ng-click="createGrid(60,60)">60 x 60</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id="70x70" ng-click="createGrid(70,70)">70 x 70</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id="80x80" ng-click="createGrid(80,80)">80 x 80</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id="90x90" ng-click="createGrid(90,90)">90 x 90</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id="100x100" ng-click="createGrid(100,100)">100 x 100</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Spielregeln</button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Conway's Game of Life Spielregeln</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>1. Jede lebende Zelle, die weniger als 2 lebende Nachbarzellen hat, stribt.</p>
+                                <p>2. Jede lebende Zelle, die 2 oder 3 lebendige Nachbarzellen hat, lebt weiter.</p>
+                                <p>3. Jede lebende Zelle, die mehr als 3 lebende Nachbarzellen hat, stirbt.</p>
+                                <p>4. Jede tote Zelle, die genau 3 lebende Nachbarzellen hat, wird lebendig.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2">Figuren</button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal2" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Figuren zum testen</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <img src="img/glider.png">
+                                <img src="img/acorn.png">
+                                <img src="img/diehard.png">
+                                <img src="img/infinite.png" style="width:162px;height:82px">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<h3>Generationen: <span class="label label-default">{{countGenerations}}</span></h3>
+<game-field ></game-field>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/gameOfLife.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

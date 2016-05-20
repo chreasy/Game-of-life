@@ -1,0 +1,11 @@
+<table class="grid">
+    <tr ng-repeat="cellsRow in playingField.data">
+        <td ng-repeat="cell in cellsRow track by $index" ng-click="clickCell(cellsRow, $index)" ng-class="{red : cell == true}"></td>
+    </tr>
+</table>
+
+<div class="playButtons">
+<button type="button" class="btn btn-default" ng-click="startGame()" ng-show="playingFieldCreatedBoolean()"><span class="glyphicon glyphicon-play"></span></button>
+<button type="button" class="btn btn-default" ng-click="stopGame()" ng-show="playingFieldCreatedBoolean()"><span class="glyphicon glyphicon-pause"></span></button>
+<button type="button" class="btn btn-default" ng-click="refreshGameField()" ng-show="playingFieldCreatedBoolean()"><span class="glyphicon glyphicon-refresh"></span></button>
+</div>
